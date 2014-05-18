@@ -37,8 +37,12 @@ h3, h4, h5 {
   font-size: 2rem; }
 
 body > header {
+  width: 23rem;
   margin-left: 34.11922%;
   display: inline-block; }
+
+body > header.small {
+  width: 17rem; }
 
 body > header .header {
   font-weight: 100;
@@ -109,17 +113,14 @@ body > header .nav {
 body > header .small-nav {
   width: 100%;
   margin-top: 0;
+  margin-left: -1.6rem;
   padding-left: 0; }
   body > header .small-nav li {
     float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%;
+    width: 25%;
     list-style: none;
     height: 3rem;
     text-align: center; }
-    body > header .small-nav li:last-child {
-      margin-right: 0; }
   body > header .small-nav a {
     display: inline-block; }
   body > header .small-nav a, body > header .small-nav a:hover, body > header .small-nav a:visited {
@@ -142,6 +143,15 @@ body > header .small-nav {
   body > header .small-nav a:hover span {
     display: block;
     width: 5rem; }
+
+.blog-list {
+  margin-left: 17.05961%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .blog-list:last-child {
+    margin-right: 0; }
 
 body > .message {
   margin-left: 25.58941%;
