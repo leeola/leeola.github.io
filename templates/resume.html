@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section id="main">
+  <header id="title">
+    <h1>{{ config.title }}</h1>
+    <span class="subtitle">Software Engineer & Systems Architect</span>
+  </header>
+
+  {% if page.extra.experiences %}
+  <section class="main-block">
+    <h2>
+      <i class="fa-solid fa-briefcase"></i> Experience
+    </h2>
+    {% for exp in page.extra.experiences %}
+    <section class="blocks">
+      <div class="date">
+        <span>{{ exp.start_date }}</span>
+        <span>{{ exp.end_date }}</span>
+      </div>
+      <div class="decorator"></div>
+      <div class="details">
+        <header>
+          <h3>{{ exp.company }}</h3>
+          {% if exp.company_description %}
+          <span class="place">{{ exp.company_description }}</span>
+          {% endif %}
+          <span class="location">{{ exp.location }}</span>
+        </header>
+        <div>
+          {% if exp.roles %}
+            {% for role in exp.roles %}
+            <div class="role-entry">
+              <h4 class="role-title">{{ role.title }} <span class="role-period">({{ role.start_date }} - {{ role.end_date }})</span></h4>
+              <ul>
+                {% for detail in role.details %}
+                <li>{{ detail | safe }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+          {% else %}
+            <ul>
+              {% for detail in exp.details %}
+              <li>{{ detail }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if page.extra.projects %}
+  <section class="main-block">
+    <h2>
+      <i class="fa-solid fa-folder-open"></i> Selected Projects
+    </h2>
+    {% for project in page.extra.projects %}
+    <section class="blocks">
+      <div class="date">
+        <span>{{ project.start_date }}</span>
+        <span>{{ project.end_date }}</span>
+      </div>
+      <div class="decorator"></div>
+      <div class="details">
+        <header>
+          <h3>{{ project.title }}</h3>
+          <span class="place">{{ project.company }}</span>
+        </header>
+        <div>
+          <ul>
+            {% for detail in project.details %}
+            <li>{{ detail | safe }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if page.extra.education %}
+  <section class="main-block concise">
+    <h2>
+      <i class="fa fa-graduation-cap"></i> Education
+    </h2>
+    {% for edu in page.extra.education %}
+    <section class="blocks">
+      <div class="date">
+        <span>{{ edu.start_date }}</span>
+        <span>{{ edu.end_date }}</span>
+      </div>
+      <div class="decorator"></div>
+      <div class="details">
+        <header>
+          <h3>{{ edu.title }}</h3>
+          <span class="place">{{ edu.company }}</span>
+          <span class="location">{{ edu.location }}</span>
+        </header>
+        <div>{{ edu.details }}</div>
+      </div>
+    </section>
+    {% endfor %}
+  </section>
+  {% endif %}
+</section>
+
+<aside id="sidebar">
+  {% if page.extra.contact %}
+  <div class="side-block" id="contact">
+    <h1>Contact Info</h1>
+    <ul>
+      {% for contact in page.extra.contact %}
+      <li>
+        <i class="{{ contact.icon }}"></i>
+        {% if contact.url %}
+        <a href="{{ contact.url }}" target="_blank">{{ contact.text }}</a>
+        {% else %}
+        {{ contact.text }}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if page.extra.skills %}
+  <div class="side-block" id="skills">
+    <h1>Skills</h1>
+    {% for skill_group in page.extra.skills %}
+    <ul>
+      {% for skill in skill_group %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</aside>
+{% endblock content %}

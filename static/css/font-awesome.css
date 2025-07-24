@@ -1,0 +1,17 @@
+/* Simple geometric icons for resume */
+.fa {
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: inherit;
+}
+
+.fa-suitcase:before { content: "\25A0 "; }
+.fa-folder-open:before { content: "\25AA "; }
+.fa-graduation-cap:before { content: "\25B2 "; }
+.fa-globe:before { content: "\25CF "; }
+.fa-github:before { content: "\25A3 "; }
+.fa-linkedin:before { content: "\25C6 "; }
+.fa-envelope:before { content: "\25C7 "; }
+.fa-phone:before { content: "\25C8 "; }
